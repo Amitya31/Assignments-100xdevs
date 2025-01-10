@@ -87,19 +87,27 @@
 // sleep(1)
 
 //--------------------------------------------------------------------------------------------------------------------------------------------
-// // class Promise{
-//     constructor(fn){
-//         this.fn = fn;
-//         fn(()=>{
-//             this.resolve();
-//         })
-//     }
+ class Promise2{
+    constructor(fn){
+        this.fn = fn;
+        fn(()=>{
+            this.resolve();
+        })
+    }
 
-//     then(callback){
-//         this.resolve = callback;
-//     }
-// }
+    then(callback){
+        this.resolve = callback;
+    }
+}
 
-// const promise = new Promise((resolve,reject)=>{
-//     resolve()
-// })
+const setTimeoutPromisified = new Promise2((resolve)=>{
+    setTimeout(()=>{
+        console.log('function called')
+        resolve()
+    },3000)
+    
+})
+function callback(){
+    console.log('function is called after settimeout')
+}
+setTimeoutPromisified.then(callback)
