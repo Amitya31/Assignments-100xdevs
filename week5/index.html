@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.6/axios.min.js"></script>
+    </head>
+</head>
+<body>
+    Linkedin
+    <div id="posts"></div>
+    <script>
+        async function getRecentPost() {
+            const response = await axios.get("https://jsonplaceholder.typicode.com/posts")
+            const arr = response.data
+            for( let i=0; i<=arr.length; i++){
+                document.getElementById("posts").innerHTML += "<div>" + arr[i].title + "<div/>"
+            }
+        }
+        getRecentPost();
+    </script>
+</body>
+</html>

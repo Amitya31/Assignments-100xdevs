@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mydiv {
+            background-color: blue;
+            display: flex;
+            justify-content: space-evenly;
+            font-size: 34px;
+        }
+        
+        
+    </style>
+</head>
+<body style="background-color: #cfbfdc; ">
+        <div class="searchbox" style="margin-top: 10px; margin-left: 60px; display: flex;border: 1px solid blue ;margin-right: 23%;">
+            <input class="tasks" type="text" placeholder="Add tasks" size="60" style="background-color: transparent; color: black;height:60px;
+            font-size: 2rem;border: none;outline: none;">
+            <button onclick="add()" style="background-color:rgb(244, 106, 249); width: 80px;border: none;"> 
+                Add
+            </button> 
+        </div>
+        <div id="todos"></div>
+
+        <script>
+            let todos = [];
+
+            function add(){
+                if(document.querySelector('input').value !== ''){
+                todos.push({
+                    title:document.querySelector('input').value
+                })
+                render();
+                }else{
+                    alert("kuch toh daal")
+                }
+            }
+
+            function deleted(i){
+                todos.splice(i,1);
+                render()
+            }
+
+
+            function render(){
+                document.querySelector('#todos').innerHTML="";
+                for (let i = 0; i < todos.length; i++) {
+                const todo = todos[i];
+                const divEl = document.createElement('div');
+                const ctr = i+1;
+                del = document.createElement('button')
+                del.setAttribute('class','but')
+                del.innerHTML = "delete"
+                del.setAttribute('onclick','deleted(" + i + ")')
+                divEl.innerHTML = ctr + " " + todo.title + " " ;
+                divEl.appendChild(del)
+                document.querySelector('#todos').appendChild(divEl);
+                }
+
+                  
+            }
+            
+            
+            
+        </script>
+</body>
+</html>

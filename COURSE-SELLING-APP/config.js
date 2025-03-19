@@ -1,0 +1,7 @@
+const JWT_SECRET =  "S3CRET";
+const JWT_SECRET_ADMIN =  "ADM1NS3CRET";
+
+module.exports = {
+    JWT_SECRET: JWT_SECRET,
+    JWT_SECRET_ADMIN: JWT_SECRET_ADMIN,
+}

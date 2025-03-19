@@ -87,27 +87,53 @@
 // sleep(1)
 
 //--------------------------------------------------------------------------------------------------------------------------------------------
- class Promise2{
-    constructor(fn){
-        this.fn = fn;
-        fn(()=>{
-            this.resolve();
-        })
-    }
+//  class Promise2{
+//     constructor(fn){
+//         this.fn = fn;
+//         fn(()=>{
+//             this.resolve();
+//         })
+//     }
 
-    then(callback){
-        this.resolve = callback;
-    }
-}
+//     then(callback){
+//         this.resolve = callback;
+//     }
+// }
 
-const setTimeoutPromisified = new Promise2((resolve)=>{
+// promisified = (resolve)=>{
+//     setTimeout(()=>{
+//         console.log('function called')
+//         resolve()
+//     },3000)
+// }
+
+// const setTimeoutPromisified = new Promise2(promisified)
+
+// function callback(){
+//     console.log('function is called after settimeout')
+// }
+// setTimeoutPromisified.then(callback)
+
+// class Promise3{
+//     constructor(fn){
+//         function afterDone(){
+//             this.resolve()
+//         }
+//         fn(afterDone())
+//     }
+//     then(callback){
+//         this.resolve= callback
+//     }
+// }
+
+doAsync=(resolve)=>{
     setTimeout(()=>{
-        console.log('function called')
-        resolve()
+        console.log('callback a function')
+        resolve();
     },3000)
-    
-})
-function callback(){
-    console.log('function is called after settimeout')
 }
-setTimeoutPromisified.then(callback)
+
+const promisified = new Promise(doAsync)
+promisified.then(()=>{
+    console.log('Create a file')
+})
