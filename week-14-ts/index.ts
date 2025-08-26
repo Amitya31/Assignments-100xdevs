@@ -111,3 +111,69 @@ const Grow: Blah = {
     name: 'amit',
     age: 4
 }
+
+// one can use an interface within an interface
+// suppose for example 
+
+interface Emp {
+    name: string,
+    age: string,
+    address: {
+        city: string,
+        pincode: string,
+    }
+}
+
+interface Office {
+    address: Address
+}
+
+// here we are defingning address two times in two different interfaces instead we can creata a new interface Address and put it in the
+// Emp and Office interface which will help to manipulate a single interface rather than multiple
+
+interface Address{
+    
+    city: string,
+    pincode?: string,
+}
+
+// suppose i want to make pincode required false than i can write "pincode?: string "
+
+// class implemnting interface, as we know class in javascript
+// interface Shape{
+//     length: number,
+//     breadth:number,
+// }
+
+// class Rectangle implements Shape{
+//     length: number;
+//     breadth: number; //one can add more fields
+
+//     constructor(length: number,breadth: number){
+//         this.length = length,
+//         this.breadth = breadth
+//     }
+// }
+
+// const rect = new Rectangle(4,5)
+// console.log(rect.length);
+
+// class extends class
+
+class Model {
+    dude(){
+        console.log('Hi am dude')
+    }
+}
+
+class Answer extends Model{
+    width : number;
+    height: number;
+
+    constructor(width: number, height: number){ //another way is constructor(public width: number, public height: number) which doesnt require to declare it beforehand
+        super();
+        this.width =1;
+        this.height = 2;
+    }
+}
+

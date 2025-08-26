@@ -45,3 +45,20 @@ let person = {
     age: 10
 };
 User(person);
+const UserType = {
+    name: 'Amit',
+    department: 'ComputerScience',
+    age: 12
+};
+const Grow = {
+    name: 'amit',
+    age: 4
+};
+class Rectangle {
+    constructor(length, breadth) {
+        this.length = length,
+            this.breadth = breadth;
+    }
+}
+const rect = new Rectangle(4, 5);
+console.log(rect.length);
