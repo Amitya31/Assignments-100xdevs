@@ -1,12 +1,12 @@
 "use client"
 import axios from 'axios'
 import React from 'react'
-// import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 function Signup() {
   const [username,setUsername] = React.useState('')
   const [password,setPassword] =  React.useState('')
-  //const router = useRouter();
+  const router = useRouter();
   return (
     <div className='w-screen h-screen flex justify-center items-center'>
       <div className='text-center'>
@@ -17,7 +17,7 @@ function Signup() {
                 body:{username,
                 password}
             })
-            //router.push('/signin')
+            router.push('/signin')
         }}>Signup</button>
       </div>
     </div>
